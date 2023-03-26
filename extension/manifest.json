@@ -1,0 +1,35 @@
+{
+    "description": "Cheetah browser extension",
+    "manifest_version": 2,
+    "name": "Cheetah",
+    "version": "1.0",
+    "homepage_url": "https://phrack.org",
+    "icons": {
+        "48": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://localhost/*",
+                "https://app.coderpad.io/*"
+            ],
+            "js": [
+                "cheetah.js"
+            ]
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "cheetah@phrack.org",
+            "strict_min_version": "50.0"
+        }
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "nativeMessaging"
+    ]
+}

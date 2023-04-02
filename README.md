@@ -2,10 +2,11 @@
 
 Cheetah is an AI-powered macOS app designed to assist users during remote software engineering interviews by providing real-time, discreet coaching and live coding platform integration.
 
-![Screenshot](cheetah.jpg)
+![Demo video (01:28)](https://user-images.githubusercontent.com/106342593/229327924-741fa31c-ee10-41cd-80a7-b66012ed69ed.mp4)
+
+<img src="cheetah.jpg" alt="Screenshot" height="650">
 
 With Cheetah, you can improve your interview performance and increase your chances of landing that $300k SWE job, without spending your weekends cramming leetcode challenges and memorizing algorithms you'll never use.
-
 
 ## How it works
 

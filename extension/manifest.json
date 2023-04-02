@@ -10,8 +10,7 @@
     "content_scripts": [
         {
             "matches": [
-                "*://localhost/*",
-                "https://app.coderpad.io/*"
+                "*://localhost/*"
             ],
             "js": [
                 "cheetah.js"

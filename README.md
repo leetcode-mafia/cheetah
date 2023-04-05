@@ -43,10 +43,11 @@ You can also select (highlight) a portion of a generated answer and click Refine
 
 Currently, only Firefox is supported. Follow these steps to install the extension:
 
-1. Go to [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html)
-2. Click "This Firefox"
-3. Click "Load Temporary Add-on"
-4. Select `./extension/manifest.json`
+1. Add the domain of the live coding platform to `matches` in ./extension/manifest.json
+2. Go to [about:debugging](https://firefox-source-docs.mozilla.org/devtools-user/about_colon_debugging/index.html)
+3. Click "This Firefox"
+4. Click "Load Temporary Add-on"
+5. Select ./extension/manifest.json
 
 
 ## Disclaimer

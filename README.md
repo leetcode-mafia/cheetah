@@ -10,7 +10,7 @@ With Cheetah, you can improve your interview performance and increase your chanc
 
 ## How it works
 
-Cheetah leverages Whisper for real-time audio transcription and GPT-4 for generating hints and solutions. You need to have your own OpenAI API key to use the app. If you don't have access to GPT-4, gpt-3.5-turbo can be used as an alternative.
+Cheetah leverages Whisper for real-time audio transcription and GPT-4 for generating hints and solutions. You need to have your own OpenAI API key to use the app. If you don't have access to GPT-4, gpt-3.5-turbo may be used as an alternative.
 
 Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](https://github.com/ggerganov/whisper.cpp). A recent M1 or M2 Mac is required for optimal performance.
 

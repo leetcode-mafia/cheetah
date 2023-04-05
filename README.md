@@ -4,7 +4,7 @@ Cheetah is an AI-powered macOS app designed to assist users during remote softwa
 
 ![Quick demo video (1:28)](https://user-images.githubusercontent.com/106342593/229961889-489e2b36-f3e6-453a-9784-f160bc1c4f8d.mp4)
 
-<img src="cheetah.jpg" alt="Screenshot">
+<img src="https://github.com/leetcode-mafia/cheetah/raw/91cc5b89864fe28476a7e2062ede2c8322c17896/cheetah.jpg" alt="Screenshot">
 
 With Cheetah, you can improve your interview performance and increase your chances of landing that $300k SWE job, without spending your weekends cramming leetcode challenges and memorizing algorithms you'll never use.
 

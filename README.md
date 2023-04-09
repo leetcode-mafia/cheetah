@@ -2,7 +2,7 @@
 
 Cheetah is an AI-powered macOS app designed to assist users during remote software engineering interviews by providing real-time, discreet coaching and live coding platform integration.
 
-![Quick demo video (1:28)](https://user-images.githubusercontent.com/106342593/229961889-489e2b36-f3e6-453a-9784-f160bc1c4f8d.mp4)
+[Quick demo video (1:28)](https://user-images.githubusercontent.com/106342593/229961889-489e2b36-f3e6-453a-9784-f160bc1c4f8d.mp4)
 
 <img src="https://github.com/leetcode-mafia/cheetah/raw/91cc5b89864fe28476a7e2062ede2c8322c17896/cheetah.jpg" alt="Screenshot">
 
@@ -13,7 +13,6 @@ With Cheetah, you can improve your interview performance and increase your chanc
 Cheetah leverages Whisper for real-time audio transcription and GPT-4 for generating hints and solutions. You need to have your own OpenAI API key to use the app. If you don't have access to GPT-4, gpt-3.5-turbo may be used as an alternative.
 
 Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](https://github.com/ggerganov/whisper.cpp). A recent M1 or M2 Mac is required for optimal performance.
-
 
 ## Getting started
 
@@ -27,7 +26,7 @@ When using a video chat app like Zoom or Google Meet, you can achieve this with 
 
 Open the app and select an audio input to start live transcription. A snippet of the transcription will be displayed under the audio input selector.
 
-*Note:* running the app in debug mode will result in very slow audio transcription performance.
+_Note:_ running the app in debug mode will result in very slow audio transcription performance.
 
 The UI features three buttons:
 
@@ -48,7 +47,6 @@ Currently, only Firefox is supported. Follow these steps to install the extensio
 3. Click "This Firefox"
 4. Click "Load Temporary Add-on"
 5. Select ./extension/manifest.json
-
 
 ## Disclaimer
 

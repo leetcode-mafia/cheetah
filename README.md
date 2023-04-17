@@ -17,6 +17,14 @@ Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](h
 
 ## Getting started
 
+### Prerequisites
+
+SDL2 must be installed or the app will crash on launch:
+
+```shell
+brew install sdl2
+```
+
 ### Audio driver setup
 
 For the best results, ensure the audio input captures both sides of the conversation.

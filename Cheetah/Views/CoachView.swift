@@ -7,6 +7,9 @@ struct CoachView: View {
     @State var answer: String
     @State var answerSelection = NSRange()
     
+    @State var showError = false
+    @State var errorDescription = ""
+    
     init(viewModel: AppViewModel) {
         self.viewModel = viewModel
         self.answer = viewModel.answer ?? ""
@@ -53,6 +56,17 @@ struct CoachView: View {
                 default:
                     spinner
                 }
+            }
+        }
+        .onReceive(viewModel.$errorDescription) {
+            if let error = $0 {
+                self.showError = true
+                self.errorDescription = error
+            }
+        }
+        .alert(errorDescription, isPresented: $showError) {
+            Button("OK", role: .cancel) {
+                self.showError = false
             }
         }
         HStack {

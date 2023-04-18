@@ -30,7 +30,7 @@ struct AuthTokenView: View {
     }
 }
 
-struct APIKeyView_Previews: PreviewProvider {
+struct AuthTokenView_Previews: PreviewProvider {
     static var previews: some View {
         return AuthTokenView(
             storedToken: Binding.constant(nil),

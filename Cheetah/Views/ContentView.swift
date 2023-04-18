@@ -6,7 +6,7 @@ struct ContentView: View {
     
     @ViewBuilder
     var body: some View {
-        if viewModel.authToken != nil {
+        if viewModel.authToken?.isEmpty == false {
             VStack(spacing: 16) {
                 switch viewModel.downloadState {
                 case .pending:

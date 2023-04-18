@@ -24,6 +24,7 @@ class AppViewModel: ObservableObject {
     
     @Published var analyzer: ConversationAnalyzer?
     @Published var answerRequest = AnswerRequest.none
+    @Published var errorDescription: String?
     
     @Published var transcript: String?
     @Published var answer: String?
@@ -67,35 +68,40 @@ struct CheetahApp: App {
         // Install manifest needed for the browser extension to talk to ExtensionHelper
         _ = try? installNativeMessagingManifest()
         
-        do {
-            for try await request in viewModel.$answerRequest.receive(on: RunLoop.main).values {
-                if let analyzer = viewModel.analyzer {
-                    switch request {
-                    case .answerQuestion:
-                        try await analyzer.answer()
-                        viewModel.answer = analyzer.context[.answer]
-                        viewModel.codeAnswer = analyzer.context[.codeAnswer]
-                        viewModel.answerRequest = .none
-                    
-                    case .refineAnswer(let selection):
-                        try await analyzer.answer(refine: true, selection: selection)
-                        viewModel.answer = analyzer.context[.answer]
-                        viewModel.codeAnswer = analyzer.context[.codeAnswer]
-                        viewModel.answerRequest = .none
-                        
-                    case .analyzeCode:
-                        try await analyzer.analyzeCode(extensionState: extensionState)
-                        viewModel.answer = analyzer.context[.answer]
-                        viewModel.answerRequest = .none
-                        
-                    case .none:
-                        break
+        while true {
+            do {
+                for try await request in viewModel.$answerRequest.receive(on: RunLoop.main).values {
+                    if let analyzer = viewModel.analyzer {
+                        switch request {
+                        case .answerQuestion:
+                            try await analyzer.answer()
+                            viewModel.answer = analyzer.context[.answer]
+                            viewModel.codeAnswer = analyzer.context[.codeAnswer]
+                            viewModel.answerRequest = .none
+                            
+                        case .refineAnswer(let selection):
+                            try await analyzer.answer(refine: true, selection: selection)
+                            viewModel.answer = analyzer.context[.answer]
+                            viewModel.codeAnswer = analyzer.context[.codeAnswer]
+                            viewModel.answerRequest = .none
+                            
+                        case .analyzeCode:
+                            try await analyzer.analyzeCode(extensionState: extensionState)
+                            viewModel.answer = analyzer.context[.answer]
+                            viewModel.answerRequest = .none
+                            
+                        case .none:
+                            break
+                        }
                     }
                 }
+            } catch let error as ErrorResult {
+                viewModel.errorDescription = error.message
+                viewModel.answerRequest = .none
+            } catch {
+                viewModel.errorDescription = error.localizedDescription
+                viewModel.answerRequest = .none
             }
-        } catch {
-            viewModel.answerRequest = .none
-            //TODO: handle error
         }
     }
     

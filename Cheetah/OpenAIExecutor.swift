@@ -77,6 +77,8 @@ class OpenAIExecutor {
         let text = result.choices?.first?.text
         if let text = text {
             log(completion: text)
+        } else if let error = result.error {
+            throw error
         }
         return text
     }
@@ -87,6 +89,8 @@ class OpenAIExecutor {
         let content = result.choices?.first?.message.content
         if let content = content {
             log(completion: content)
+        } else if let error = result.error {
+            throw error
         }
         return content
     }

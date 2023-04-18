@@ -19,6 +19,8 @@ Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](h
 
 ### Prerequisites
 
+Requires macOS 13.1 or later.
+
 SDL2 must be installed or the app will crash on launch:
 
 ```shell

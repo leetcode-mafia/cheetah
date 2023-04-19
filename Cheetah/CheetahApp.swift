@@ -117,6 +117,34 @@ struct CheetahApp: App {
         }
         .windowResizability(.contentSize)
         .windowStyle(.hiddenTitleBar)
+        .commands {
+            CommandGroup(replacing: .appSettings) {
+                Button(action: {
+                    viewModel.authToken = nil
+                    resetAfterSettingsChanged()
+                }) {
+                    Text("Change API Key…")
+                }
+                Button(action: {
+                    if viewModel.useGPT4 == true {
+                        viewModel.useGPT4 = false
+                    } else {
+                        viewModel.useGPT4 = true
+                    }
+                    resetAfterSettingsChanged()
+                }) {
+                    Text("Use GPT-4")
+                    if viewModel.useGPT4 == true {
+                        Image(systemName: "checkmark")
+                    }
+                }
+            }
+        }
+    }
+    
+    func resetAfterSettingsChanged() {
+        viewModel.selectedDevice = nil
+        viewModel.analyzer = nil
     }
     
     func setCaptureDevice(_ device: CaptureDevice?) {

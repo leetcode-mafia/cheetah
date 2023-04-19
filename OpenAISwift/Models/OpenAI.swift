@@ -17,7 +17,6 @@ public struct OpenAI<T: Payload>: Codable {
 
 public struct ErrorResult: Codable, Error {
     public let message: String
-    public let code: String
 }
 
 public struct TextResult: Payload {

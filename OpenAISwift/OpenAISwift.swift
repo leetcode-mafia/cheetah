@@ -9,6 +9,15 @@ public enum OpenAIError: Error {
     case decodingError(error: Error)
 }
 
+extension OpenAIError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .genericError(let error), .decodingError(let error):
+            return error.localizedDescription
+        }
+    }
+}
+
 public class OpenAISwift {
     fileprivate(set) var token: String?
     fileprivate let config: Config
@@ -132,6 +141,9 @@ extension OpenAISwift {
                         let res = try JSONDecoder().decode(OpenAI<MessageResult>.self, from: success)
                         completionHandler(.success(res))
                     } catch {
+                        if let resp = String(data: success, encoding: .utf8) {
+                            print("Failed to decode response:\n", resp)
+                        }
                         completionHandler(.failure(.decodingError(error: error)))
                     }
                 case .failure(let failure):

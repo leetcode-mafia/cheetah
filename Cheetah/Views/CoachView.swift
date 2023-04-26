@@ -78,21 +78,26 @@ struct CoachView: View {
                         .font(.footnote.italic())
                 }
                 ScrollView {
-                    NSTextFieldWrapper(text: $answer, selectedRange: $answerSelection)
-                        .onChange(of: viewModel.answer) {
-                            if let newAnswer = $0 {
-                                self.answer = newAnswer
+                    if answer != "" {
+                        NSTextFieldWrapper(text: $answer, selectedRange: $answerSelection)
+                            .onChange(of: viewModel.answer) {
+                                if let newAnswer = $0 {
+                                    self.answer = newAnswer
+                                }
                             }
+                    }
+                    if let solution = viewModel.codeAnswer {
+                        HStack {
+                            Text(solution)
+                                .textSelection(.enabled)
+                                .font(.footnote)
+                                .monospaced()
+                                .lineSpacing(1.2)
+                            Spacer()
                         }
+                    }
                 }
                 .frame(maxHeight: 600)
-                if let solution = viewModel.codeAnswer {
-                    Text(solution)
-                        .textSelection(.enabled)
-                        .font(.footnote)
-                        .monospaced()
-                }
-                Spacer()
             }
             Spacer()
         }

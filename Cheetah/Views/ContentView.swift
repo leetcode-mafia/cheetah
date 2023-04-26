@@ -37,7 +37,7 @@ struct ContentView_Previews: PreviewProvider {
         let viewModel = AppViewModel()
         viewModel.devices = [CaptureDevice(id: 0, name: "Audio Loopback Device")]
         viewModel.buttonsAlwaysEnabled = true
-        viewModel.authToken = ""
+        viewModel.authToken = "x"
         viewModel.downloadState = .completed
         viewModel.transcript = "So how would we break this app down into components?"
         viewModel.answer = """
@@ -52,7 +52,7 @@ Props: message
 
 • App Component: Renders the Header, Content, and Footer components
 """
-       return ContentView(viewModel: viewModel)
+        return ContentView(viewModel: viewModel)
             .previewLayout(.fixed(width: 300, height: 500))
             .previewDisplayName("Cheetah")
     }

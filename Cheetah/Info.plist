@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<dict>
+	<key>SUFeedURL</key>
+	<string>https://cheetah-sw-update.leetcodemafia.com/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>30J/+sJRxhziFhK63Xe6OY5kjwF5tG7klmntA0XIGNM=</string>
+	<key>SUEnableSystemProfiling</key>
+	<true/>
+</dict>
 </plist>

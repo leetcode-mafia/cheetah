@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 import LibWhisper
 import CheetahIPC
+import Sparkle
 
 enum AnswerRequest {
     case none
@@ -44,6 +45,8 @@ struct CheetahApp: App {
     @State var ipcServer: IPCServer?
     
     var extensionState = BrowserExtensionState()
+    
+    let updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     
     func start() async {
         viewModel.devices = try! CaptureDevice.devices
@@ -118,6 +121,9 @@ struct CheetahApp: App {
         .windowResizability(.contentSize)
         .windowStyle(.hiddenTitleBar)
         .commands {
+            CommandGroup(after: .appInfo) {
+                CheckForUpdatesView(updater: updaterController.updater)
+            }
             CommandGroup(replacing: .appSettings) {
                 Button(action: {
                     viewModel.authToken = nil

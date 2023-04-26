@@ -1,0 +1,32 @@
+name: Build
+on:
+  workflow_call:
+  pull_request:
+    branches:
+      - main
+jobs:
+  arm64_ventura:
+    runs-on: macos-13
+    steps:
+      - run: |
+          brew fetch --force --bottle-tag=arm64_ventura sdl2
+          brew install $(brew --cache --bottle-tag=arm64_ventura sdl2)
+          sudo mkdir -p /opt/homebrew/lib
+          sudo ln -s /usr/local/lib/libSDL2.a /opt/homebrew/lib/libSDL2.a
+      - uses: actions/checkout@v3
+        with:
+          path: cheetah
+      - uses: actions/checkout@v3
+        with:
+          repository: ggerganov/whisper.cpp
+          ref: v1.3.0
+          path: whisper.cpp
+      - run: |
+          cd cheetah
+          xcodebuild -scheme Cheetah -configuration Release -destination generic/platform=macOS -derivedDataPath build
+          cd build/Build/Products/Release
+          zip -r Cheetah.zip Cheetah.app
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Cheetah
+          path: cheetah/build/Build/Products/Release/Cheetah.zip

@@ -21,6 +21,8 @@ Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](h
 
 Requires macOS 13.1 or later.
 
+To build Cheetah, whisper.cpp must be checked out in `../whisper.cpp`.
+
 ### Audio driver setup
 
 For the best results, ensure the audio input captures both sides of the conversation.

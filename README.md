@@ -21,7 +21,11 @@ Whisper runs locally on your system, utilizing Georgi Gerganov's [whisper.cpp](h
 
 Requires macOS 13.1 or later.
 
-To build Cheetah, whisper.cpp must be checked out in `../whisper.cpp`.
+To build Cheetah, [whisper.cpp](https://github.com/ggerganov/whisper.cpp) must be checked out in `../whisper.cpp`, and the SDL2 library must be installed:
+
+```shell
+brew install sdl2
+```
 
 ### Audio driver setup
 

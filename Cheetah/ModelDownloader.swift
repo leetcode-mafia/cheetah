@@ -20,7 +20,7 @@ class ModelDownloader {
     
     @Published var state = State.pending
     
-    let baseURL = URL(string: "https://huggingface.co/datasets/ggerganov/whisper.cpp/resolve/main")!
+    let baseURL = URL(string: "https://huggingface.co/ggerganov/whisper.cpp/resolve/main")!
     
     let modelName: String
     let session: URLSession
